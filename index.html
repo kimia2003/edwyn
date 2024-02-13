@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 class="header_text" style="color: rgb(255, 255, 255);">will you be my valentine :P</h1>
+      </div>
+      
+      <div class="gif_container">
+        <img
+          src="https://media.tenor.com/RaSd2b3U5sgAAAAj/peach-goma.gif"
+          alt="Cute animated illustration"
+        />
+      </div>
+      <div class="buttons">
+        <button class="btn" id="yesButton" onclick="nextPage()" style="background-color: rgb(255, 255, 255); color: rgb(240, 143, 232);">Yes</button>
+        <button
+          class="btn"
+          id="noButton"
+          onmouseover="moveButton()"
+          onclick="moveButton()"
+        style="background-color: rgb(255, 255, 255);color: rgb(240, 143, 232);">
+          No
+        </button>
+
+        <script>
+            var attempts = 0;
+          function nextPage() {
+            window.location.href = "yes.html";
+          }
+
+          function moveButton() {
+    var button = document.getElementById("noButton");
+    var x =
+        Math.random() *
+        (window.innerWidth - button.offsetWidth);
+    var y =
+        Math.random() *
+        (window.innerHeight - button.offsetHeight);
+    
+    // Constrain x and y within the viewport
+    x = Math.max(0, Math.min(x, window.innerWidth - button.offsetWidth));
+    y = Math.max(0, Math.min(y, window.innerHeight - button.offsetHeight));
+
+    button.style.left = `${x}px`;
+    button.style.top = `${y}px`;
+    
+    attempts++; // Increase attempts count
+    document.getElementById("yesButton").style.fontSize = 30 + attempts + "px"; // Increase font size of Yes button
+}
+
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
